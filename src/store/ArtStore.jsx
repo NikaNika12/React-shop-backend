@@ -23,13 +23,13 @@ export default class ArtStore {
         makeAutoObservable(this)
     }
 
-    setTypes(subject) {
+    setSubjects(subject) {
         this._subject = subject
     }
-    setBrands(medium) {
+    setMediums(medium) {
         this._medium = medium
     }
-    setDevices(art) {
+    setArts(art) {
         this._art = art
     }
 
@@ -41,12 +41,6 @@ export default class ArtStore {
         this.setPage(1)
         this._selectedMedium = medium
     }
-    // setPage(page) {
-    //     this._page = page
-    // }
-    // setTotalCount(count) {
-    //     this._totalCount = count
-    // }
 
     get subject() {
         return this._subject
@@ -63,13 +57,4 @@ export default class ArtStore {
     get selectedMedium() {
         return this._selectedMedium
     }
-    // get totalCount() {
-    //     return this._totalCount
-    // }
-    // get page() {
-    //     return this._page
-    // }
-    // get limit() {
-    //     return this._limit
-    // }
 }
