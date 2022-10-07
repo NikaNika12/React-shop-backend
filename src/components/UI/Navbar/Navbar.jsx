@@ -7,6 +7,7 @@ import {observer} from "mobx-react-lite";
 
 
 
+
 const Navbar = observer(() => {
   const {user} = useContext(Context)
   const history = useNavigate()
@@ -20,7 +21,7 @@ const Navbar = observer(() => {
               {user.isAuth ?
               <div className='login__links'>
               <MyButton onClick={() => history.push('/admin')}>Admin</MyButton>
-              <MyButton onClick={() => history.push('/login')}>Log in</MyButton>
+              <MyButton onClick={() => history.push('/login')}>Log out</MyButton>
               <Link to="/users">Users</Link>
               </div>
               :
