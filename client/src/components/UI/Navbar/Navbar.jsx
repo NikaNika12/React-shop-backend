@@ -1,39 +1,61 @@
 import React from 'react';
 import {Link, Navigate, useNavigate} from "react-router-dom";
 import { useContext } from 'react';
-import MyButton from '../button/MyButton';
 import { Context } from '../../..'; 
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import {Button} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
+import Container from "react-bootstrap/Container";
+import {NavLink} from "react-router-dom";
+import "./Navbar.css";
 
-
-
-const Navbar = observer(() => { //rerender in real time
+const NaviBar = observer(() => {
   const {user} = useContext(Context)
   const navigate = useNavigate()
 
   const logOut = () => {
+    navigate("/login");
     user.setUser({})
-    user.setIsAuth(false)
+    user.setIsAuth(false);
   }
 
-    return (
-        <div className='navbar'>
-              <div className='navbar__links'>
-                <div>Art Store</div>
-                <Link to="/about">About</Link>
-                <Link to="/gallery">Gallery</Link>
-              </div>
-              {user.isAuth ?
-              <div className='login__links'>
-              <MyButton onClick={() => navigate('/admin')}>Admin</MyButton>
-              <MyButton onClick={() => logOut()}>Log out</MyButton>
-              <Link to="/users">Users</Link>
-              </div>
-              :
-              <MyButton onClick={() => navigate("/login")}>Sign in</MyButton>
-              }
-          </div>
-    );
+  return (
+      <Navbar bg="dark" variant="dark">
+      <Container>
+          <NavLink className="navlink" to="/gallery">Art Store</NavLink>
+          <NavLink className="navlink" to="/about">About</NavLink>
+          {user.isAuth ? (
+            <Nav className="nav" style={{color: 'white'}}>
+            <Button
+                variant={"outline-light"}
+                onClick={() => navigate('/admin')}
+            >
+                Admin Panel
+            </Button>
+            <Button
+                variant={"outline-light"}
+                onClick={() => logOut()}
+                className="button"
+            >
+                Log out
+            </Button>
+            </Nav>
+          )   
+          : (
+            <Nav className="nav" style={{color: 'white'}}>
+              <Button 
+                variant={"outline-light"} 
+                onClick={() => navigate('/login')}
+              >
+                Sign in
+              </Button>
+            </Nav>
+          )
+        }
+    </Container>
+    </Navbar>
+  );
 });
 
-export default Navbar;
+export default NaviBar;

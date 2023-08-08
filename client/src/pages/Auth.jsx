@@ -8,13 +8,10 @@ import { login, registration } from '../http/userApi';
 const Auth = observer(() => {
     const {user} = useContext(Context)
     const location = useLocation()
-    const history = useNavigate()
+    const navigate = useNavigate()
     const isLogin = location.pathname === "/login"
     const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    
-
-    
+    const [password, setPassword] = useState('')  
     
     const click = async () => {
         try{
@@ -23,16 +20,15 @@ const Auth = observer(() => {
                 data = await login(email, password);
             } else {
                 data = await registration(email, password);
+                console.log(data)
             }
             user.setUser(user)
             user.setIsAuth(true)
-            history("/gallery")
+            navigate("/gallery")
         } catch (e){
             alert(e.response.data.message)
         }
     }
-
-    
 
     return (
         <div className="container-form">
@@ -43,6 +39,7 @@ const Auth = observer(() => {
                         placeholder="Email..."
                         value={email}
                         onChange={event => setEmail(event.target.value)}
+                        type="email"
                     />
                     <input className="text"
                         placeholder="Password..."

@@ -1,0 +1,13 @@
+.button {
+    margin-left: 15px;
+}
+
+.nav {
+    margin-left: auto;
+}
+
+.navlink {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}

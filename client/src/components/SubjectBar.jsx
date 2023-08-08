@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {observer} from "mobx-react-lite";
 import { Context } from '..';
+import { ListGroup } from 'react-bootstrap';
 
 
 const SubjectBar = observer(() => {
@@ -8,17 +9,18 @@ const SubjectBar = observer(() => {
     return (
         <div className='subject_bar'>
             <p>Subject</p>
-            <ul className='subject_list'>
+            <ListGroup>
             {art.subjects.map(subject =>
-                <li
+                <ListGroup.Item
+                    style={{cursor: "pointer"}}
                     active = {subject.id === art.selectedSubject.id}
                     onClick={() => art.setSelectedSubject(subject)}
                     key={subject.id}
                 >
                     {subject.name}
-                </li>
-            )}
-            </ul>
+                </ListGroup.Item>
+            )} 
+            </ListGroup>
         </div>
     );
 });

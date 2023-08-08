@@ -2,7 +2,7 @@ import {makeAutoObservable} from "mobx";
 
 export default class UserStore {
     constructor() {
-        this._isAuth = true //_ not changeble variable
+        this._isAuth = false //_ not changeble variable
         this._user = {}
         makeAutoObservable(this) //mobx looks for this variable changes 
     }
@@ -14,7 +14,7 @@ export default class UserStore {
         this._user = user
     }
 
-//receive variables from our conditions when variable changes in constructor function  
+//receive variables from our conditions when variable is changed in constructor function  
     get isAuth() {
         return this._isAuth
     }

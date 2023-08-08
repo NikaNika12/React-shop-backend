@@ -1,5 +1,5 @@
 const {Type} = require('../models/models');
-const uuid = require("uuid")
+const uuid = require("uuid") //генерация случайный айди
 const path = require('path');
 const {Device, DeviceInfo} = require('../models/models')
 const ApiError = require('../error/ApiError');

@@ -19,8 +19,11 @@ export default class ArtStore {
             {id: 2, name: "Summer seaside in Turkey", price: 450, currency: "€", likes: 8, image: './Image2.jpg', Medium: "Acrylic", Subject: "Beach", Material: "Canvas", Year: "2022", size: "27.6 W x 23.2 H x 0.6 D in"},
             {id: 3, name: "The lost world in mountains", price: 6300, currency: "€", likes: 21, image: './Image3.jpg', Medium: "Oil", Subject: "Mountains", Material: "Canvas", Year: "2022", size: "15.7 W x 11.8 H x 0.6 D in"}
         ]
-        this._selectedSubject = {} //outlined field after click
+        this._selectedSubject = {} //выделение при наведении выбранного обьекта
         this._selectedMedium = {}
+        this._page = 1
+        this._totalCount = 0
+        this._limit = 3
         makeAutoObservable(this)
     }
 
@@ -35,11 +38,21 @@ export default class ArtStore {
     }
 
     setSelectedSubject(subject){
+        this.setPage(1)
         this._selectedSubject = subject
     }
 
     setSelectedMedium(medium){
+        this.setPage(1)
         this._selectedMedium = medium
+    }
+
+    setPage(page){
+        this._page = page
+    }
+
+    setTotalCount(count) {
+        this._totalCount = count
     }
 
     get subjects() {
@@ -56,6 +69,15 @@ export default class ArtStore {
     }
     get selectedMedium() {
         return this._selectedMedium
+    }
+    get totalCount() {
+        return this._totalCount
+    }
+    get page() {
+        return this._page
+    }
+    get limit() {
+        return this._limit
     }
 
 }

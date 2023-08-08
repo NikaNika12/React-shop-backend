@@ -3,10 +3,10 @@ import './styles/App.css';
 import { BrowserRouter} from 'react-router-dom';
 import Navbar from './components/UI/Navbar/Navbar';
 import AppRouter from './components/AppRouter';
-import Loader from './components/UI/Loader/Loader';
 import { observer } from 'mobx-react';
 import { Context } from '.';
 import { check } from './http/userApi';
+import { Spinner } from 'react-bootstrap';
 
 
 
@@ -22,13 +22,13 @@ const App = observer(() => {
   }, [])
 
   if (loading) {
-      return <Loader/>
+      return <Spinner className="spinner-border" role="status"/>
   }
 
     return (
       <BrowserRouter>
-            <Navbar/>
-            <AppRouter/>
+        <Navbar/>
+        <AppRouter/>
       </BrowserRouter>
     );
 });

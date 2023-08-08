@@ -25,10 +25,10 @@ export const createArt = async (art) => {
     return data
 }
 
-export const fetchArts = async (subjectId, mediumId) => {
+export const fetchArts = async (subjectId, mediumId, page, limit = 5) => {
     const {data} = await $host.get('api/art', {params: {
-        subjectId, mediumId
-        }})
+        subjectId, mediumId, page, limit
+    }})
     return data
 }
 

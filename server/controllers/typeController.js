@@ -13,6 +13,16 @@ class TypeController { //метод пост в постман http://localhost:
         return res.json(types)
     }
 
+    async delete(req, res) {
+        const {id} = req.params
+        const types = await Type.destroy(
+            {
+                where: Number({id}),
+            },
+        )
+        return res.json(types)
+    }
+
 }
 
 module.exports = new TypeController()

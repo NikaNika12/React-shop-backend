@@ -18,7 +18,6 @@ app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 app.use("/api",router)
 
-
 //обработка ощибок, последний Middleware
 app.use(errorHandler)
 

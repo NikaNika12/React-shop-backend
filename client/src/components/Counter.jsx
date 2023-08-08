@@ -39,13 +39,24 @@ const Counter = function () {
         }
     }
 
-
     return (
-        <div className='like_buttons'>
-            <div></div>
-            <button onClick={likef} className={[likeactive ? "active-like": null, "button"].join("")}><img style={{height: "20px"}} src={Like}></img>Like {like}</button>
-            <button onClick={dislikef} className={[dislikeactive ? "active-dislike": null, "button"].join("")}><img style={{height: "20px"}} src={Dislike}></img>Dislike {dislike}</button> 
-            <div></div>
+        <div className='like_buttons m-2'>
+            <button 
+            onClick={likef} 
+            className={[likeactive ? "active-like": null, "button"].join("")}
+            style={{margin: "0"}}
+            >
+                <img style={{height: "20px"}} src={Like}/>
+                <span>Like {like}</span>
+            </button>
+            <button 
+            onClick={dislikef} 
+            className={[dislikeactive ? "active-dislike": null, "button"].join("")}
+            style={{margin: "0"}}
+            >
+                <img style={{height: "20px"}} src={Dislike}/>
+                <span>Dislike {dislike}</span>
+            </button> 
         </div>
     )
 }
