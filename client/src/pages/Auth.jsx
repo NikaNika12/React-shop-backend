@@ -28,7 +28,7 @@ const Auth = observer(() => {
             alert(e.response.data.message)
         }
     }
-
+    
     return (
         <div className="container-form">
             <div className="card">
