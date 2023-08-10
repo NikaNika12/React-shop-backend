@@ -4,7 +4,7 @@ import { Context } from '..';
 import { ListGroup } from 'react-bootstrap';
 
 
-const SubjectBar = observer(() => {
+const SubjectBar = observer((arts) => {
     const {art} = useContext(Context)
     return (
         <div className='subject_bar'>

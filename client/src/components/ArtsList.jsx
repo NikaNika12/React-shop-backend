@@ -9,8 +9,8 @@ const ArtList = observer(() => {
 
     return (
         <Row style={{display: 'flex'}}>
-            {art.arts.map(art =>
-                <ArtItem key={art.id} art={art}/>
+            {art.arts.map((art, index) =>
+                <ArtItem key={art.id} art={art} number={index + 1} />
             )}
         </Row>
     );

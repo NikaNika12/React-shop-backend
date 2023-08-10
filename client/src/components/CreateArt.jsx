@@ -8,7 +8,6 @@ import { createArt, fetchMediums, fetchSubjects} from '../http/artAPI';
 const CreateArt = observer(({show, onHide}) => {
     const {art} = useContext(Context)
     const [name, setName] = useState('')
-    const [size, setSize] = useState('')
     const [price, setPrice] = useState(0)
     const [file, setFile] = useState(null)
     const [info, setInfo] = useState([])
@@ -36,7 +35,6 @@ const CreateArt = observer(({show, onHide}) => {
     const addArt = () => {
         const formData = new FormData()
         formData.append('name', name)
-        formData.append('size', size)
         formData.append('price', `${price}`)
         formData.append('img', file)
         formData.append('subjectId', art.selectedSubject.id)
@@ -98,13 +96,6 @@ const CreateArt = observer(({show, onHide}) => {
                         type="number"
                     />
                     <Form.Control
-                        value={size}
-                        onChange={e => setSize(e.target.value)}
-                        className="mt-3"
-                        placeholder="W x H x D"
-                        type="number"
-                    />
-                    <Form.Control
                         className="mt-3"
                         type="file"
                         onChange={selectFile}
@@ -146,7 +137,7 @@ const CreateArt = observer(({show, onHide}) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Close</Button>
-                <Button variant="outline-success" /* onClick={addArt} */>Add</Button>
+                <Button variant="outline-success" onClick={addArt}>Add</Button>
             </Modal.Footer>
         </Modal>
     );

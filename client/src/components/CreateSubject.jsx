@@ -41,19 +41,6 @@ const CreateSubject = ({show, onHide}) => {
                 <Button variant="outline-success" onClick={addSubject}>Add</Button>
             </Modal.Footer>
         </Modal>
-                
-        /* <form>
-            
-            <div>Add subject</div>
-            <MyInput
-                value={value}
-                onChange={event => setValue(event.target.value)}
-                type="text"
-                placeholder="Enter subject"
-            />
-            <MyButton onClick={addSubject}>Add</MyButton>
-            </form> */
-        
     );
 };
 

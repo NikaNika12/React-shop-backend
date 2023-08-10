@@ -32,7 +32,7 @@ const Gallery = observer(() => {
     return (
       <div className="App">              
         <div>
-            <SubjectBar/>
+            <SubjectBar art={arts}/>
             <MediumBar/>
         </div>
         <div>

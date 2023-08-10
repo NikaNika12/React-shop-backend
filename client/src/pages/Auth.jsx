@@ -20,7 +20,6 @@ const Auth = observer(() => {
                 data = await login(email, password);
             } else {
                 data = await registration(email, password);
-                console.log(data)
             }
             user.setUser(user)
             user.setIsAuth(true)
@@ -40,12 +39,14 @@ const Auth = observer(() => {
                         value={email}
                         onChange={event => setEmail(event.target.value)}
                         type="email"
+                        autoComplete="on"
                     />
                     <input className="text"
                         placeholder="Password..."
                         value={password}
                         onChange={event => setPassword(event.target.value)}
                         type="password"
+                        autoComplete="on"
                     />
                     <div className="row">
                         {isLogin ?

@@ -15,7 +15,6 @@ const NaviBar = observer(() => {
   const navigate = useNavigate()
 
   const logOut = () => {
-    navigate("/login");
     user.setUser({})
     user.setIsAuth(false);
   }

@@ -17,7 +17,7 @@ class TypeController { //метод пост в постман http://localhost:
         const {id} = req.params
         const types = await Type.destroy(
             {
-                where: Number({id}),
+                where: {id: Number(id)},
             },
         )
         return res.json(types)
